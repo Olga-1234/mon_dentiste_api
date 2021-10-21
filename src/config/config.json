@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "olgita",
+    "password": "KbgZedOmn@1234",
+    "database": "mon_dentiste_DB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "olgita",
+    "password": "KbgZedOmn@1234",
+    "database": "mon_dentiste_DB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "olgita",
+    "password": "KbgZedOmn@1234",
+    "database": "mon_dentiste_DB",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
