@@ -1,10 +1,11 @@
 const express = require("express");
 const userRouter = express.Router();
+const { authJwt } = require("../middlewares");
 const userController = require("../controllers/userControllers");
 
-userRouter.get("/", userController.allUsers);
-userRouter.get("/adminProfil", userController.adminProfil);
-userRouter.get("/customerProfil", userController.customerProfil);
-userRouter.get("/denstistProfil", userController.dentistProfil);
+userRouter.get("/allUser", userController.allUsers);
+userRouter.get("/adminProfil",[authJwt.verifyToken, authJwt.isAdmin],userController.adminProfil);
+userRouter.get("/customerProfil",[authJwt.verifyToken, authJwt.isCustomer],userController.customerProfil);
+userRouter.get("/denstisteProfil",[authJwt.verifyToken, authJwt.isDentiste],userController.dentistProfil);
 
-module.exports = userRouter
+module.exports = userRouter;
