@@ -5,8 +5,8 @@ const articleRoute = express.Router();
 
 articleRoute.get("/", articleController.getAllArticle);
 articleRoute.get("/:id", articleController.getByIdArticle);
-articleRoute.post("/", articleController.createArticle);
-articleRoute.delete("/:id", articleController.deleteArticle);
-articleRoute.put("/:id", articleController.updateArticle)
+articleRoute.post("/",[authJwt.verifyToken, authJwt.isDentiste], articleController.createArticle);
+articleRoute.delete("/:id",[authJwt.verifyToken, authJwt.isDentiste], articleController.deleteArticle);
+articleRoute.put("/:id",[authJwt.verifyToken, authJwt.isDentiste], articleController.updateArticle)
 
 module.exports = articleRoute

@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       Article.belongsTo(models.User, {
         foreignKey: "userId",
       });
+
+      
     }
   };
   Article.init({
@@ -22,19 +24,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     description:{
-      type: DataTypes.STRING(10000),
+      type: DataTypes.TEXT,
     allowNull:false},
 
     picture: {
     type: DataTypes.STRING(250),
-    allowNull:false
+    allowNull:true
     },
-    publicationDate: 
-    {type: DataTypes.DATE,
-    allowNull: false},
-    updateDate: {
-    type: DataTypes.DATE,
-    allowNull:true},
+    // publicationDate: 
+    // {type: DataTypes.DATE,
+    // allowNull: false},
+    Name: {
+    type: DataTypes.STRING(250),
+    allowNull:true
+  },
 
     userId:{
       type: DataTypes.INTEGER,

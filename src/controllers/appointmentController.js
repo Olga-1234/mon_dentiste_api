@@ -1,5 +1,6 @@
 const { Appointment, User, Cabinet, sequelize } = require("../models");
 const Op = sequelize.Op;
+const formatdate = require("../utils/formatdate");
 
 const createAppointment = async (req, res, next) => {
   const appointment = {
@@ -8,6 +9,19 @@ const createAppointment = async (req, res, next) => {
     userId: req.userId,
     cabinetId: req.body.cabinetId,
   };
+
+  const currentDate = formatdate(new Date());
+  if (new Date(appointment.date) < new Date(currentDate)) {
+    res
+      .status(400)
+      .json({ error: "la date que vous selectionner n'est pas valide" });
+  }
+
+const  openingTime = "07:00"
+const closureHour = "17:00"
+  if (appointment.time < openingTime || appointment.time > closureHour) {
+    res.status(400).json({error : "l'heure que vous selectionner n'est pas valide"})
+  }
 
   await Appointment.create(appointment)
     .then((data) => {
@@ -19,6 +33,7 @@ const createAppointment = async (req, res, next) => {
 };
 const getAllAppointment = async (req, res, next) => {
   Appointment.findAll({
+    
     include: [
       {
         model: Cabinet,
@@ -37,12 +52,7 @@ const getAllAppointment = async (req, res, next) => {
       res.status(500).json({ message: `une erreur dans le serveur${error}` });
     });
 
-  //   await Appointment.findAll()
-
-  //     .then((data) => {w
-
-  //       res.send(data);
-  //     })
+  
 };
 const getByIdAppointment = async (req, res, next) => {
   const idAppointment = req.params.id;

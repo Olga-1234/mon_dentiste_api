@@ -9,19 +9,29 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(250),
+        allowNull: false,
+
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT,
+        allowNull: false,
+
       },
       picture: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(250),
+        allowNull: true,
+
       },
-      publicationDate: {
-        type: Sequelize.DATE
-      },
-      updateDate: {
-        type: Sequelize.DATE
+      // publicationDate: {
+      //   type: Sequelize.DATE,
+      //   allowNull: true,
+
+      // },
+      Name: {
+        type: Sequelize.STRING(250),
+        allowNull: false,
+
       },
       createdAt: {
         allowNull: false,

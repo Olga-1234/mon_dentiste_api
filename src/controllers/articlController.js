@@ -1,4 +1,4 @@
-const { Article, sequelize } = require("../models");
+const { Article, sequelize, User } = require("../models");
 const Op = sequelize.Op;
 
 const createArticle = async (req, res, next) => {
@@ -6,8 +6,8 @@ const createArticle = async (req, res, next) => {
     title: req.body.title,
     description: req.body.description,
     picture: req.body.picture,
-    publicationDate: req.body.publicationDate,
-    updateDate: req.body.updateDate,
+    userId: req.userId,
+    Name: req.body.Name,
   };
   await Article.create(articlE)
     .then((data) => {
@@ -18,7 +18,17 @@ const createArticle = async (req, res, next) => {
     });
 };
 const getAllArticle = async (req, res, next) => {
-  await Article.findAll()
+  await Article.findAll(
+    {
+      include: [
+        {
+          model: User,
+          required: true,
+        },
+      ],
+    }
+
+  )
     .then((data) => {
       res.send(data);
     })
