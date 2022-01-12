@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../../.env" });
+require("dotenv").config();
 
 const databaseConfig = {
   host: process.env.DB_HOST || "localhost",

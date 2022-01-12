@@ -17,25 +17,29 @@ const createArticle = async (req, res, next) => {
       res.status(500).json({ message: `une erreur dans le serveur ${error}` });
     });
 };
+
 const getAllArticle = async (req, res, next) => {
-  await Article.findAll(
-    {
+  try {
+    let article = await Article.findAll({
       include: [
         {
           model: User,
           required: true,
         },
       ],
-    }
-
-  )
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((error) => {
-      res.status(500).json({ message: `une erreur dans le serveur${error}` });
     });
+    return res.send(article);
+  } catch (error) {
+    res.status(500).json({ message: `une erreur dans le serveur${error}` });
+  }
+  // .then((data) => {
+  //   res.send(data);
+  // })
+  // .catch((error) => {
+  //   res.status(500).json({ message: `une erreur dans le serveur${error}` });
+  // });
 };
+
 const getByIdArticle = async (req, res, next) => {
   const idArticle = req.params.id;
   await Article.findByPk(idArticle)

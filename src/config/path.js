@@ -5,6 +5,7 @@ const path = {
     baseUriCabinet: "/api/cabinet",
     baseUriService: "/api/service",
     baseUriArticle: "/api/article",
-    baseUriAppointment: "/api/appointment"
+    baseUriAppointment: "/api/appointment",
+    baseUriRestPwd: "/api/resetpasswordemail"
 }
 module.exports= path;
