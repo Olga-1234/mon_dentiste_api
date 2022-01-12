@@ -3,24 +3,24 @@
 
 
   "development": {
-    "username": "ukhspoemn68nqkod",
-    "password": "hai7GqG9elf3RcfAa2Xv",
-    "database": "bahlhqgjxxgyazyr8pab",
-    "host": "bahlhqgjxxgyazyr8pab-mysql.services.clever-cloud.com",
+    "username": "olgita",
+    "password": "KbgZedOmn@1234",
+    "database": "mon_dentiste_DB",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "ukhspoemn68nqkod",
-    "password": "hai7GqG9elf3RcfAa2Xv",
-    "database": "bahlhqgjxxgyazyr8pab",
-    "host": "bahlhqgjxxgyazyr8pab-mysql.services.clever-cloud.com",
+    "username": "olgita",
+    "password": "KbgZedOmn@1234",
+    "database": "mon_dentiste_DB",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "ukhspoemn68nqkod",
-    "password": "hai7GqG9elf3RcfAa2Xv",
-    "database": "bahlhqgjxxgyazyr8pab",
-    "host": "bahlhqgjxxgyazyr8pab-mysql.services.clever-cloud.com",
+    "username": "olgita",
+    "password": "KbgZedOmn@1234",
+    "database": "mon_dentiste_DB",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
