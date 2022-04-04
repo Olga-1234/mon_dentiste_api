@@ -9,3 +9,6 @@ const path = {
     baseUriRestPwd: "/api/resetpasswordemail"
 }
 module.exports= path;
+
+
+ 
