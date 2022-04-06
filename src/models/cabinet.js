@@ -39,13 +39,18 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.TIME,
     allowNull:false
   },
+  phone: {
+    type:DataTypes.STRING(250),
+  allowNull:false
+},
     city: {type:DataTypes.STRING(250),
       allowNull:false
     },
     address: {
       type:DataTypes.STRING(250),
     allowNull:false}
-  }, {
+  },
+   {
     sequelize,
     modelName: 'Cabinet',
   });
