@@ -18,7 +18,6 @@ authRoute.post("/signUp",[verifySingUp.checkDuplicateEmail,
     }),
     
 
-
 ],authController.signUp);
 authRoute.post("/signIn", authController.signIn);
 
