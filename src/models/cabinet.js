@@ -28,9 +28,9 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING(250),
       allowNull:false
   },
-    website: {type:DataTypes.STRING(250),
-    allowNull:true
-  },
+  //   website: {type:DataTypes.STRING(250),
+  //   allowNull:true
+  // },
     closureTime: {
       type:DataTypes.TIME,
   allowNull:false
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
   },
   phone: {
     type:DataTypes.STRING(250),
-  allowNull:false
+  allowNull:true
 },
     city: {type:DataTypes.STRING(250),
       allowNull:false

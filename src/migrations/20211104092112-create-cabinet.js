@@ -18,12 +18,12 @@ module.exports = {
       },
       phone :{
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      website: {
-        type: Sequelize.STRING,
         allowNull: true,
       },
+      // phone: {
+      //   type: Sequelize.STRING,
+      //   allowNull: true,
+      // },
       closureTime: {
         type: Sequelize.TIME,
         allowNull: false,
