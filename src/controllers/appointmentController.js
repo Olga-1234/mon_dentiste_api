@@ -10,6 +10,8 @@ const createAppointment = async (req, res, next) => {
     email : req.body.email,
     userId: req.userId,
     cabinetId: req.body.cabinetId,
+    userId: req.body.userId,
+
   };
 
   const currentDate = formatdate(new Date());
