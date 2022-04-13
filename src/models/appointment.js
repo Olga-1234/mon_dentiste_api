@@ -27,13 +27,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TIME,
         allowNull: false,
       },
+      name: {
+        type: DataTypes.STRING(250),
+        allowNull: false,
+      },
+      eamil: {
+        type: DataTypes.STRING(250),
+        allowNull: false,
+      },
+      
       cabinetId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       userId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {

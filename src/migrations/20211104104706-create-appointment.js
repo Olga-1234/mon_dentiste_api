@@ -16,11 +16,19 @@ module.exports = {
       time: {
         type: Sequelize.TIME,
         allowNull: false,
-
       },
+      name: {
+        type: Sequelize.STRING(250),
+        allowNull: false,
+      },
+      eamil: {
+        type: Sequelize.STRING(250),
+        allowNull: false,
+      },
+
       cabinetId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: "Cabinets",
           key: "id",
@@ -29,7 +37,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: "Users",
           key: "id",
