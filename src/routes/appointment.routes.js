@@ -18,10 +18,7 @@ appointmentRoute.get(
 );
 appointmentRoute.post(
   "/",
-  [
-    authJwt.verifyToken,
-    authJwt.isCustomer,
-  ],
+ 
   appointmentController.createAppointment
 );
 appointmentRoute.delete(
