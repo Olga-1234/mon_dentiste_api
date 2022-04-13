@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Cabinet extends Model {
     /**
@@ -12,47 +10,61 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Cabinet.hasMany(models.UserCabinet, {
-        foreignKey: "cabinetId"
+        foreignKey: "cabinetId",
       });
-      Cabinet.hasMany(models.Appointment,{
-        foreignKey: "cabinetId"
-      } )
+      Cabinet.hasMany(models.Appointment, {
+        foreignKey: "cabinetId",
+      });
     }
-  };
-  Cabinet.init({
-    name: {
-      type:DataTypes.STRING(250),
-    allowNull:false
-  },
-    email: {
-      type:DataTypes.STRING(250),
-      allowNull:false
-  },
-  //   website: {type:DataTypes.STRING(250),
-  //   allowNull:true
-  // },
-    closureTime: {
-      type:DataTypes.TIME,
-  allowNull:false
+  }
+  Cabinet.init(
+    {
+      name: {
+        type: DataTypes.STRING(250),
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING(250),
+        allowNull: false,
+      },
+      //   website: {type:DataTypes.STRING(250),
+      //   allowNull:true
+      // },
+      closureTime: {
+        type: DataTypes.TIME,
+        allowNull: false,
+      },
+      openTime: {
+        type: DataTypes.TIME,
+        allowNull: false,
+      },
+
+service :{
+  type :DataTypes.STRING(250),
+  allowNull : false,
 },
-    openTime: {
-      type:DataTypes.TIME,
-    allowNull:false
-  },
-  phone: {
-    type:DataTypes.STRING(250),
-  allowNull:true
+
+Description :{
+  type :DataTypes.TEXT,
+  allowNull : false,
 },
-    city: {type:DataTypes.STRING(250),
-      allowNull:false
+
+
+      phone: {
+        type: DataTypes.STRING(250),
+        allowNull: true,
+      },
+      city: { type: DataTypes.STRING(250), allowNull: false },
+      address: {
+        type: DataTypes.STRING(250),
+        allowNull: false,
+      },
     },
-    address: {
-      type:DataTypes.STRING(250),
-    allowNull:false}
-  },
-   {
-    sequelize,
-    modelName: 'Cabinet',
-  });
+
+    {
+      sequelize,
+      modelName: "Cabinet",
+    }
+  );
   return Cabinet;
 };

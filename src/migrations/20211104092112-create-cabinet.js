@@ -20,10 +20,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      // phone: {
-      //   type: Sequelize.STRING,
-      //   allowNull: true,
-      // },
+      service :{
+        type :Sequelize.STRING,
+        allowNull : false,
+      },
+      
+      Description :{
+        type :Sequelize.TEXT,
+        allowNull : false,
+      },
+      
       closureTime: {
         type: Sequelize.TIME,
         allowNull: false,

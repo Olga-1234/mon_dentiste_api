@@ -9,6 +9,7 @@ const createArticle = async (req, res, next) => {
     userId: req.userId,
     Name: req.body.Name,
   };
+
   await Article.create(articlE)
     .then((data) => {
       res.send({ message: `nouvel article ajouté ${data}` });
