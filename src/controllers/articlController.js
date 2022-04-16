@@ -1,5 +1,4 @@
 const { Article, sequelize, User } = require("../models");
-const { uploads } = require("../../cloudinary");
 const Op = sequelize.Op;
 
 const createArticle = async (req, res, next) => {
