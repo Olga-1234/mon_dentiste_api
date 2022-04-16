@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ruser router
+// user router
 app.use(path.baseUriAuth, authRoute);
 app.use(path.baseUriUsers, userRoute);
 app.use(path.baseUriPub, pubRoute);
