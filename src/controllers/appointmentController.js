@@ -7,7 +7,8 @@ const createAppointment = async (req, res, next) => {
     date: req.body.date,
     time: req.body.time,
     name : req.body.name,
-    email : req.body.email
+    email : req.body.email,
+    cabinetId: req.body.cabinetId,
 
   };
 
