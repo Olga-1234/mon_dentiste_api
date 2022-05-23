@@ -28,8 +28,11 @@ const getAllArticle = async (req, res, next) => {
           model: User,
           required: true,
         },
-      ],
-    });
+      ], limit: 4,
+      offset: 3 
+    })
+    console.log(JSON.stringify(Article, null, 2));
+    ;
     return res.send(article);
   } catch (error) {
     res.status(500).json({ message: `une erreur dans le serveur${error}` });
