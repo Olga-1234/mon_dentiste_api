@@ -8,7 +8,7 @@ const appointmentRoute = express.Router();
 
 appointmentRoute.get(
   "/",
-  [authJwt.verifyToken, authJwt.isCustomer],
+  [authJwt.verifyToken, authJwt.isAdmin],
   appointmentController.getAllAppointment
 );
 appointmentRoute.get(
@@ -23,12 +23,12 @@ appointmentRoute.post(
 );
 appointmentRoute.delete(
   "/:id",
-  [authJwt.verifyToken, authJwt.isCustomer],
+  [authJwt.verifyToken, authJwt.isAdmin],
   appointmentController.deleteAppointment
 );
 appointmentRoute.put(
   "/:id",
-  [authJwt.verifyToken, authJwt.isCustomer],
+  [authJwt.verifyToken, authJwt.isAdmin],
   appointmentController.updateAppointment
 );
 
