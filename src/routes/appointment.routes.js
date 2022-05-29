@@ -8,7 +8,6 @@ const appointmentRoute = express.Router();
 
 appointmentRoute.get(
   "/",
-  [authJwt.verifyToken, authJwt.isAdmin],
   appointmentController.getAllAppointment
 );
 appointmentRoute.get(
