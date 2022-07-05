@@ -141,6 +141,12 @@ const signIn = async (req, res, next) => {
         roles: authorities,
         cabinets : authoritiesCabinet,
         accessToken: token,
+        userfirstName: user.userfirstName,
+
+        address: user.address,
+        
+        birthdate: user.birthdate,
+        tel: req.body.tel,
       });
     })
     .catch((err) => {
