@@ -29,8 +29,9 @@ const getAllArticle = async (req, res, next) => {
           model: User,
           required: true,
         },
-      ], limit: 2,
-      offset: 0 
+      ], 
+      // limit: 2,
+      // offset: 0 
     })
     console.log(JSON.stringify(Article, null, 2));
     ;
