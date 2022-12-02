@@ -144,7 +144,6 @@ const signIn = async (req, res, next) => {
         userfirstName: user.userfirstName,
 
         address: user.address,
-        
         birthdate: user.birthdate,
         tel: req.body.tel,
       });
