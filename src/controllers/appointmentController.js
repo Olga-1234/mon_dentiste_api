@@ -68,6 +68,54 @@ const getByIdAppointment = async (req, res, next) => {
       res.status(500).json({ message: `${error} une erreur dans le serveur` });
     });
 };
+
+const getAppointmentByUserId = async (req, res, next)=>{
+  const idUser = req.params.id;
+  await Appointment.findAll({  where: { userId: idUser } ,
+
+    include: [
+      {
+        model: Cabinet,
+        required: true,
+      },
+      {
+        model: User,
+        required: true,
+      },
+    ],
+  })
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((error) => {
+    res.status(500).json({ message: `une erreur dans le serveur ${error}` });
+  });
+}
+
+
+const getAppointmentByCabinetId = async (req, res, next)=>{
+  const idCabinet = req.params.id;
+  await Appointment.findAll({  where: { cabinetId: idCabinet } ,
+
+    include: [
+      {
+        model: Cabinet,
+        required: true,
+      },
+      {
+        model: User,
+        required: true,
+      },
+    ],
+  })
+  .then((data) => {
+    res.send(data);
+  })
+  .catch((error) => {
+    res.status(500).json({ message: `une erreur dans le serveur ${error}` });
+  });
+}
+
 const deleteAppointment = async (req, res, next) => {
   const idAppointment = req.params.id;
   await Appointment.destroy({ where: { id: idAppointment } })
@@ -105,4 +153,6 @@ module.exports = {
   deleteAppointment,
   updateAppointment,
   findAllPublished,
+  getAppointmentByUserId,
+  getAppointmentByCabinetId
 };

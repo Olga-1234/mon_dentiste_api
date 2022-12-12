@@ -46,7 +46,7 @@ const signUp = async (req, res, next) => {
 
    if (cabinets && cabinets.length > 0) {
     for(let i = 0; i < cabinets.length; i++) {
-      let oneCabinet = await Cabinet.findOne({ where: { name: cabinets[i] } });
+      let oneCabinet = await Cabinet.findOne({ where: { id: cabinets[i] } });
 
       if (oneCabinet) {
         await UserCabinet.create(
@@ -130,7 +130,7 @@ const signIn = async (req, res, next) => {
 
       for (const userCabinet of userCabinets) {
         let cabinet = await Cabinet.findByPk(userCabinet.cabinetId);
-        authoritiesCabinet.push(cabinet.name);
+        authoritiesCabinet.push(cabinet.id);
       }
 
       res.status(200).send({

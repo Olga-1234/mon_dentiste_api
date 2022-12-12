@@ -21,7 +21,6 @@ const createArticle = async (req, res, next) => {
 };
 
 const getAllArticle = async (req, res, next) => {
-  
   try {
     let article = await Article.findAll({
       include: [
@@ -29,17 +28,15 @@ const getAllArticle = async (req, res, next) => {
           model: User,
           required: true,
         },
-      ], 
+      ],
       // limit: 2,
-      // offset: 0 
-    })
+      // offset: 0
+    });
     console.log(JSON.stringify(Article, null, 2));
-    ;
     return res.send(article);
   } catch (error) {
     res.status(500).json({ message: `une erreur dans le serveur${error}` });
   }
-
 };
 
 const getByIdArticle = async (req, res, next) => {

@@ -8,7 +8,7 @@ const databaseConfig = {
   host: "localhost",
   user: "olgita",
   password: "KbgZedOmn@1234",
-  database: "mon_dentiste_DB",
+  database: "DB_MON_DENTISTE",
   dialect: "mysql",
   pool: {
     max: 5,
