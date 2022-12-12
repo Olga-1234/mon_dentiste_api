@@ -6,7 +6,9 @@ const createCabinet = async (req, res, next) => {
   const cab = {
     name: req.body.name,
     email: req.body.email,
-    website: req.body.website,
+    phone : req.body.phone,
+    Description : req.body.Description,
+    service : req.body.service,
     closureTime: req.body.closureTime,
     openTime: req.body.openTime,
     city: req.body.city,

@@ -16,11 +16,19 @@ module.exports = {
       time: {
         type: Sequelize.TIME,
         allowNull: false,
-
       },
+      name: {
+        type: Sequelize.STRING(250),
+        allowNull: false,
+      },
+      email: {
+        type: Sequelize.STRING(250),
+        allowNull: false,
+      },
+
       cabinetId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: "Cabinets",
           key: "id",
@@ -29,7 +37,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: "Users",
           key: "id",
@@ -50,3 +58,61 @@ module.exports = {
     await queryInterface.dropTable('Appointments');
   }
 };
+
+
+// 'use strict';
+// module.exports = {
+//   up: async (queryInterface, Sequelize) => {
+//     await queryInterface.createTable('Appointments', {
+//       id: {
+//         allowNull: false,
+//         autoIncrement: true,
+//         primaryKey: true,
+//         type: Sequelize.INTEGER
+//       },
+//       date: {
+//         type: Sequelize.DATE,
+//         allowNull: false,
+
+//       },
+//       email:  {
+//         type: Sequelize.STRING,
+//         allowNull: false,
+//       },
+//       time: {
+//         type: Sequelize.TIME,
+//         allowNull: false,
+
+//       },
+//       cabinetId: {
+//         type: Sequelize.INTEGER,
+//         allowNull: false,
+//         references: {
+//           model: "Cabinets",
+//           key: "id",
+//           as: "cabinetId",
+//         },
+//       },
+//       userId: {
+//         type: Sequelize.INTEGER,
+//         allowNull: false,
+//         references: {
+//           model: "Users",
+//           key: "id",
+//           as: "userId",
+//         },
+//       },
+//       createdAt: {
+//         allowNull: false,
+//         type: Sequelize.DATE
+//       },
+//       updatedAt: {
+//         allowNull: false,
+//         type: Sequelize.DATE
+//       }
+//     });
+//   },
+//   down: async (queryInterface, Sequelize) => {
+//     await queryInterface.dropTable('Appointments');
+//   }
+// };

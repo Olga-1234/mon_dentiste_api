@@ -2,6 +2,7 @@ const { Article, sequelize, User } = require("../models");
 const Op = sequelize.Op;
 
 const createArticle = async (req, res, next) => {
+  console.log(req.files);
   const articlE = {
     title: req.body.title,
     description: req.body.description,
@@ -9,6 +10,7 @@ const createArticle = async (req, res, next) => {
     userId: req.userId,
     Name: req.body.Name,
   };
+
   await Article.create(articlE)
     .then((data) => {
       res.send({ message: `nouvel article ajouté ${data}` });
@@ -27,17 +29,14 @@ const getAllArticle = async (req, res, next) => {
           required: true,
         },
       ],
+      // limit: 2,
+      // offset: 0
     });
+    console.log(JSON.stringify(Article, null, 2));
     return res.send(article);
   } catch (error) {
     res.status(500).json({ message: `une erreur dans le serveur${error}` });
   }
-  // .then((data) => {
-  //   res.send(data);
-  // })
-  // .catch((error) => {
-  //   res.status(500).json({ message: `une erreur dans le serveur${error}` });
-  // });
 };
 
 const getByIdArticle = async (req, res, next) => {

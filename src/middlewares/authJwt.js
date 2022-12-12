@@ -13,7 +13,6 @@ const verifyToken = (req, res, next) => {
     }
 
     req.userId = decoded.id;
-    
   });
   next();
 };
@@ -39,8 +38,10 @@ const isAdmin = async (req, res, next) => {
 };
 
 const isCustomer = async (req, res, next) => {
+  console.log(" req.user.id", req.user.userId)
   await User.findByPk(req.userId).then(async (user) => {
     const userRoles = await UserRole.findAll({ where: { userId: user.id } });
+    console.log(" user en miniscule", user, "le role", userRoles)
     for (const userRole of userRoles) {
       let role = await Role.findByPk(userRole.roleId);
       if (
