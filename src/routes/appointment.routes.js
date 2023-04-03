@@ -6,14 +6,15 @@ const { parse } = require("dotenv");
 const formatdate = require("../utils/formatdate");
 const appointmentRoute = express.Router();
 
-appointmentRoute.get("/", appointmentController.getAllAppointment);
+appointmentRoute.get("/",[authJwt.verifyToken, authJwt.isAdmin], appointmentController.getAllAppointment);
 appointmentRoute.get(
   "/user/:id",
-  // [authJwt.verifyToken, authJwt.isCustomer],
+  [authJwt.verifyToken, authJwt.isCustomer],
   appointmentController.getAppointmentByUserId
 );
 appointmentRoute.get(
   "/cabinet/:id",
+  [authJwt.verifyToken, authJwt.isDentiste],
   appointmentController.getAppointmentByCabinetId
 );
 appointmentRoute.get(
