@@ -40,23 +40,13 @@ yarn install
 `
 3. Add the environmental variables that will be used in the process: 
 ```
-JWT_SECRET = <your_jwt_secret>
-SENDGRID_API_KEY = <your_sendgrid_api_key>
-SENDGRID_SENDER = <your_sendgrid_sender>
-MAILNAME = <your_sendgrid_mail_account>
-PASSMAIL = <your_sendgrid_account_password>
-
 
 NODE_ENV = development
-PORTLOCAL = 4000
-DB_HOSTLOCAL = <localhost or 127.0.0.1>
-DB_USERLOCAL = <root or your_mysql_username>
-DB_PASSLOCAL = <"" or your_mysql_password>
-DB_NAMELOCAL = kesho_db
-DB_PORTLOCAL = 3306
-DB_CHARSETLOCAL = utf8
-DB_CONNECTION_LIMITLOCAL = 10
-DB_CONNECTION_TIMEOUTLOCAL = 100000
+PORT = 5000
+DB_HOST = <localhost or 127.0.0.1>
+DB_USER = <root or your_mysql_username>
+DB_PASSWORD = <"" or your_mysql_password>
+
 ```
 4. Generate database and execute migrations.<br/>
 run this sequelize-cli commands to create a mySQL database:<br/>
